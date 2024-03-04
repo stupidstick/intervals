@@ -7,8 +7,8 @@ import org.springframework.data.repository.NoRepositoryBean;
 import java.util.Optional;
 
 @NoRepositoryBean
-public interface IntervalsRepository<T extends BaseInterval<IN>, IN, ID> extends CrudRepository<T, ID> {
-    boolean existsByStartAndEnd(IN start, IN end);
+public interface IntervalsRepository<EN extends BaseInterval<T>, T, ID> extends CrudRepository<EN, ID> {
+    boolean existsByStartAndEnd(T start, T end);
 
-    Optional<T> findMin();
+    Optional<EN> findMin();
 }

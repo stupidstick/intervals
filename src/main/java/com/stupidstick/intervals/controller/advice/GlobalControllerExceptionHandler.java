@@ -1,6 +1,6 @@
 package com.stupidstick.intervals.controller.advice;
 
-import com.stupidstick.intervals.model.ValidationError;
+import com.stupidstick.intervals.model.ValidationErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,11 +17,11 @@ public class GlobalControllerExceptionHandler {
     @ExceptionHandler(HandlerMethodValidationException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
-    public List<ValidationError> handleValidationExceptions(HandlerMethodValidationException ex) {
-        List<ValidationError> errors = new ArrayList<>();
+    public List<ValidationErrorResponse> handleValidationExceptions(HandlerMethodValidationException ex) {
+        List<ValidationErrorResponse> errors = new ArrayList<>();
         for (var validationResult : ex.getAllValidationResults()) {
             for (var error: validationResult.getResolvableErrors()) {
-                errors.add(new ValidationError(validationResult.getArgument(), error.getDefaultMessage()));
+                errors.add(new ValidationErrorResponse(validationResult.getArgument(), error.getDefaultMessage()));
             }
         }
         return errors;

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ValidationError {
+public class ValidationErrorResponse {
     private Object argument;
     private String message;
 }

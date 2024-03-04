@@ -21,6 +21,10 @@ public class IntervalsMergerImpl implements IntervalsMerger {
 
         intervals = new ArrayList<>(intervals);
         intervals.sort(Comparator.comparing(Interval::getStart));
+        return mergeSortedIntervals(intervals);
+    }
+
+    private <T extends Comparable<T>> List<Interval<T>> mergeSortedIntervals(List<Interval<T>> intervals) {
         List<Interval<T>> result = new ArrayList<>();
         var currentInterval = intervals.get(0);
         for (int i = 1; i < intervals.size(); i++) {

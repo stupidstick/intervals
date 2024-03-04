@@ -4,8 +4,7 @@ import com.stupidstick.intervals.converters.interval.IntervalRequestToIntervalCo
 import com.stupidstick.intervals.converters.interval.IntervalToListConverter;
 import com.stupidstick.intervals.model.Interval;
 import com.stupidstick.intervals.model.IntervalRequest;
-import com.stupidstick.intervals.service.DigitsIntervalsService;
-import com.stupidstick.intervals.service.LettersIntervalsService;
+import com.stupidstick.intervals.service.IntervalsService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -17,8 +16,9 @@ import java.util.List;
 @RequestMapping("/api/v1/intervals")
 @RequiredArgsConstructor
 public class IntervalsController {
-    private final DigitsIntervalsService digitsIntervalsService;
-    private final LettersIntervalsService lettersIntervalsService;
+
+    private final IntervalsService<BigInteger> digitsIntervalsService;
+    private final IntervalsService<String> lettersIntervalsService;
     private final IntervalRequestToIntervalConverter requestConverter;
     private final IntervalToListConverter intervalToListConverter;
 

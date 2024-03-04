@@ -10,10 +10,10 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class IntervalsSaverService {
+public class IntervalsSaverService<EN extends BaseInterval<T>, T> {
 
     @Transactional
-    public <T extends BaseInterval<IN>, IN> void saveIntervalsIfNotExists(IntervalsRepository<T, IN, ?> repository, List<T> intervals) {
+    public void saveIntervalsIfNotExists(IntervalsRepository<EN, T, ?> repository, List<EN> intervals) {
         for (var interval: intervals) {
             if (!repository.existsByStartAndEnd(interval.getStart(), interval.getEnd())) {
                 repository.save(interval);

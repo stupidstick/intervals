@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class BaseIntervalMapper {
-    public <T extends BaseInterval<E>, E extends Comparable<E>> T map(Interval<E> source, T destination) {
+    public <EN extends BaseInterval<T>, T extends Comparable<T>> EN map(Interval<T> source, EN destination) {
         destination.setStart(source.getStart());
         destination.setEnd(source.getEnd());
         return destination;
