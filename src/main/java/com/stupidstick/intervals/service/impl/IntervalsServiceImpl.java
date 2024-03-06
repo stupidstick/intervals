@@ -1,12 +1,13 @@
 package com.stupidstick.intervals.service.impl;
 
 import com.stupidstick.intervals.components.merge.IntervalsMerger;
-import com.stupidstick.intervals.converters.interval.BaseIntervalMapper;
-import com.stupidstick.intervals.converters.interval.BaseIntervalToIntervalConverter;
-import com.stupidstick.intervals.entities.BaseInterval;
-import com.stupidstick.intervals.exceptions.MinimumIntervalNotFoundException;
+import com.stupidstick.intervals.converter.interval.BaseIntervalMapper;
+import com.stupidstick.intervals.converter.interval.BaseIntervalToIntervalConverter;
+import com.stupidstick.intervals.entity.BaseInterval;
+import com.stupidstick.intervals.exception.MinimumIntervalNotFoundException;
 import com.stupidstick.intervals.model.Interval;
-import com.stupidstick.intervals.repositories.IntervalsRepository;
+import com.stupidstick.intervals.repository.IntervalsRepository;
+import com.stupidstick.intervals.service.IntervalsSaverService;
 import com.stupidstick.intervals.service.IntervalsService;
 import lombok.RequiredArgsConstructor;
 
@@ -25,7 +26,7 @@ public class IntervalsServiceImpl<IN extends Comparable<IN>, EN extends BaseInte
     @Override
     public List<Interval<IN>> save(List<Interval<IN>> intervals) {
         List<Interval<IN>> mergedList = merger.merge(intervals);
-        saverService.saveIntervalsIfNotExists(repository, mergedList.stream()
+        saverService.saveIntervals(repository, mergedList.stream()
                 .map(i -> mapper.map(i, entitySupplier.get())).toList());
         return mergedList;
     }

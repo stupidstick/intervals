@@ -1,13 +1,13 @@
 package com.stupidstick.intervals.config;
 
 import com.stupidstick.intervals.components.merge.IntervalsMerger;
-import com.stupidstick.intervals.converters.interval.BaseIntervalMapper;
-import com.stupidstick.intervals.converters.interval.BaseIntervalToIntervalConverter;
-import com.stupidstick.intervals.entities.DigitsInterval;
-import com.stupidstick.intervals.entities.LettersInterval;
-import com.stupidstick.intervals.repositories.IntervalsRepository;
+import com.stupidstick.intervals.converter.interval.BaseIntervalMapper;
+import com.stupidstick.intervals.converter.interval.BaseIntervalToIntervalConverter;
+import com.stupidstick.intervals.entity.DigitsInterval;
+import com.stupidstick.intervals.entity.LettersInterval;
+import com.stupidstick.intervals.repository.IntervalsRepository;
+import com.stupidstick.intervals.service.IntervalsSaverService;
 import com.stupidstick.intervals.service.IntervalsService;
-import com.stupidstick.intervals.service.impl.IntervalsSaverService;
 import com.stupidstick.intervals.service.impl.IntervalsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,7 +1,7 @@
 package com.stupidstick.intervals.controller;
 
-import com.stupidstick.intervals.converters.interval.IntervalRequestToIntervalConverter;
-import com.stupidstick.intervals.converters.interval.IntervalToListConverter;
+import com.stupidstick.intervals.converter.interval.IntervalRequestToIntervalConverter;
+import com.stupidstick.intervals.converter.interval.IntervalToListConverter;
 import com.stupidstick.intervals.model.Interval;
 import com.stupidstick.intervals.model.IntervalRequest;
 import com.stupidstick.intervals.service.IntervalsService;
